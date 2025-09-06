@@ -62,23 +62,7 @@ modeloSel.addEventListener("change", () => {
 // =============================
 // PALETA DE CORES
 // =============================
-document.querySelectorAll(".color-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const color = btn.dataset.color;
-    const tipo = modeloSel.value;
 
-    // Se existir variação de cor salva como arquivo (ex: camiseta-black.png)
-    const path = `assets/img/mockups/${tipo}-${color}.png`;
-    fetch(path).then(res => {
-      if (res.ok) {
-        mockupImg.src = path;
-      } else {
-        // fallback: aplicar filtro CSS
-        mockupImg.style.filter = `drop-shadow(0 0 0 ${color}) saturate(200%)`;
-      }
-    });
-  });
-});
 // =============================
 // RESET
 // =============================
@@ -95,19 +79,7 @@ resetBtn.addEventListener('click', () => {
   applyTransform();
 });
 
-// =============================
-// EXPORTAR PNG
-// =============================
-dlBtn.addEventListener('click', () => {
-  const stage = document.getElementById('stage');
 
-  html2canvas(stage, { backgroundColor: null }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'chosen-preview.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  });
-});
 
 // =============================
 // ANIMAÇÕES DE ENTRADA (IntersectionObserver)
