@@ -1,0 +1,57 @@
+/* Stage (área de preview) */
+.mock-stage {
+  position: relative;
+  width: 100%;
+  max-width: 320px;   /* menor no mobile */
+  margin: 0 auto;
+  background: #f9f9f9;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Ajuste em telas pequenas */
+@media (max-width: 600px) {
+  .mock-stage {
+    max-width: 260px;
+  }
+}
+
+
+/* Mockup base */
+#mockup {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Estampa (upload do usuário) */
+#stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: none;
+}
+
+/* Paleta de cores */
+.palette {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.color-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chosen — Moda Personalizável em Moçambique</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Chosen é mais que roupa. É identidade, propósito e estilo. Camisas, camisolas e camisetas personalizáveis com qualidade premium em Moçambique." />
+  <meta name="keywords" content="Chosen, roupas personalizadas, Moçambique, camisetas, camisas, camisolas, moda premium, personalização" />
+  <meta name="author" content="Chosen Brand" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Chosen — Moda Personalizável em Moçambique" />
+  <meta property="og:description" content="Descobre a Chosen: camisas, camisolas e camisetas totalmente personalizáveis. Moda premium feita em Moçambique." />
+  <meta property="og:image" content="https://lojachosen.online/assets/img/mockups/hero-camiseta.jpg" />
+  <meta property="og:url" content="https://lojachosen.online" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chosen — Roupas Personalizáveis em Maputo">
+  <meta name="twitter:description" content="Mais que vestir, uma identidade. Camisetas, camisas e camisolas personalizáveis.">
+  <meta name="twitter:image" content="https://lojachosen.online/assets/img/mockups/hero-camiseta.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://lojachosen.online">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/chosen-logo.png">
+  <link rel="icon" type="image/x-icon" href="assets/icons/chosen-logo.ico">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (ícones sociais) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Estilos principais -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/personalizador.css">
+  
+  <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTD3TQT9NK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KTD3TQT9NK');
+  </script>
+  
+  <!-- Google Search Console (verificação) -->
+  <!-- ATENÇÃO: deixa só o token dentro de content (sem o prefixo 'google-site-verification=') -->
+  <meta name="google-site-verification" content="l-UjQtguxV05iz8lwcaAGXVNAqLvsGFV5X2Zl_n1SW8" />
+</head>
+
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container wrap">
+      <div class="hero-copy">
+        <div class="logo headline">CHOSEN</div>
+        <h1 class="headline title-xl">Mais que vestir, uma identidade</h1>
+        <p class="hero-points sub">Camisas, camisolas e camisetas — <strong>totalmente personalizáveis</strong>.</p>
+        <div class="hero-card">
+          <span class="pill">✓ 100% Personalizável</span>
+          <span class="pill" style="margin-left:8px">✦ Qualidade Premium</span>
+        </div>
+        <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#personaliza" class="btn">Personalizar Agora</a>
+          <a href="#colecoes" class="btn-ghost">Ver Coleções</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="badge">Edição 2025</div>
+        <img class="hero-mock" src="assets/img/mockups/hero-camiseta.jpg" alt="Camiseta Chosen"/>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE A CHOSEN -->
+  <section id="sobre" class="section">
+    <div class="container reveal">
+      <div class="pill">Sobre a Marca</div>
+      <h2 class="headline title-lg" style="margin-top:12px">A história da Chosen</h2>
+      <p class="sub" style="max-width:700px;margin:auto;margin-top:14px">
+        A Chosen nasceu com o propósito de <strong>transformar roupa em identidade</strong>.  
+        Cada peça é feita para expressar personalidade, fé e atitude — sem perder o conforto e a qualidade premium.  
+        Acreditamos que vestir Chosen é vestir propósito.
+      </p>
+    </div>
+  </section>
+
+  <!-- PERSONALIZAÇÃO -->
+  <section id="personaliza" class="section">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:18px">
+        <div class="pill">Cria a tua Chosen</div>
+        <h2 class="headline title-lg" style="margin-top:12px">Personaliza à tua maneira</h2>
+        <p class="sub">Escolhe modelo, cor e estampa. Faz upload de uma imagem e <em>vê como fica</em>.</p>
+      </div>
+
+      <div class="customizer">
+        <!-- Stage -->
+        <div class="panel reveal">
+          <div class="mock-stage" id="stage">
+            <!-- Mockup dinâmico (sem filtro) -->
+            <img id="mockup" class="tee" src="assets/img/mockups/camiseta.png" alt="Mockup"/>
+
+            <!-- Estampa -->
+            <img id="stamp" class="stamp" alt="Pré-visualização da estampa"/>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="panel reveal">
+          <div class="controls">
+            <label>Modelo
+              <select id="modelo">
+                <option value="camiseta">Camiseta</option>
+                <option value="camisa">Camisa</option>
+                <option value="camisola">Camisola</option>
+              </select>
+            </label>
+
+            <label><strong>Carregar imagem</strong></label>
+            <input type="file" id="uploader" accept="image/*" />
+            <div class="hint">Formatos suportados: JPG, PNG, WebP</div>
+
+            <!-- Paleta: agora com data-mock por modelo, para trocar a imagem base -->
+            <label>Cor do tecido</label>
+            <div class="palette">
+              <!-- Branco -->
+              <button class="color-btn"
+                      data-color="#ffffff"
+                      data-mock-camiseta="assets/img/mockups/camiseta.png"
+                      data-mock-camisa="assets/img/mockups/camisa.png"
+                      data-mock-camisola="assets/img/mockups/camisola.png"
+                      style="background:#ffffff"></button>
+
+              <!-- Preto -->
+              <button class="color-btn"
+                      data-color="#000000"
+                      data-mock-camiseta="assets/img/mockups/camiseta-black.png"
+                      data-mock-camisa="assets/img/mockups/camisa-black.png"
+                      data-mock-camisola="assets/img/mockups/camisola-black.png"
+                      style="background:#000000"></button>
+
+              <!-- Dourado -->
+              <button class="color-btn"
+                      data-color="#d4af37"
+                      data-mock-camiseta="assets/img/mockups/camiseta-gold.png"
+                      data-mock-camisa="assets/img/mockups/camisa-gold.png"
+                      data-mock-camisola="assets/img/mockups/camisola-gold.png"
+                      style="background:#d4af37"></button>
+
+              <!-- Verde (emerald) -->
+              <button class="color-btn"
+                      data-color="#10b981"
+                      data-mock-camiseta="assets/img/mockups/camiseta-emerald.png"
+                      data-mock-camisa="assets/img/mockups/camisa-emerald.png"
+                      data-mock-camisola="assets/img/mockups/camisola-emerald.png"
+                      style="background:#10b981"></button>
+            </div>
+
+            <label>Escala da estampa
+              <input type="range" id="scale" min="20" max="120" value="60" />
+            </label>
+            <label>Posição Horizontal
+              <input type="range" id="posX" min="-40" max="40" value="0" />
+            </label>
+            <label>Posição Vertical
+              <input type="range" id="posY" min="-40" max="40" value="0" />
+            </label>
+            <label>Rotação
+              <input type="range" id="rotate" min="-20" max="20" value="0" />
+            </label>
+            <label>Opacidade
+              <input type="range" id="opacity" min="30" max="100" value="95" />
+            </label>
+
+            <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap">
+              <button class="btn" id="reset">Repor</button>
+              <button class="btn-ghost" id="download">Baixar prévia (PNG)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDIÇÃO LIMITADA -->
+  <section id="edicao-limitada" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="pill">Edição Limitada</div>
+        <h2 class="headline title-lg" style="margin-top:12px">Os Mais Escolhidos</h2>
+      </div>
+
+      <!-- 2x2 (4 cards) -->
+      <div class="grid grid-4">
+        <article class="card reveal">
+          <span class="badge-mini">Exclusivo</span>
+          <div class="card-media">
+            <img src="assets/img/destaques/Camiseta4.JPG" alt="Drop Gold"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <div class="meta">
+              <h3 class="title-md">Drop Gold</h3>
+              <span class="sub">Detalhes dourados</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge-mini">Exclusivo</span>
+          <div class="card-media">
+            <img src="assets/img/destaques/Camiseta4.JPG" alt="Emerald Core"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <div class="meta">
+              <h3 class="title-md">Emerald Core</h3>
+              <span class="sub">Assinatura esmeralda</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge-mini">Exclusivo</span>
+          <div class="card-media">
+            <img src="assets/img/destaques/Camiseta4.JPG" alt="Monochrome"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <div class="meta">
+              <h3 class="title-md">Monochrome</h3>
+              <span class="sub">Minimalismo absoluto</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="badge-mini">Exclusivo</span>
+          <div class="card-media">
+            <img src="assets/img/destaques/Camiseta4.JPG" alt="Signature"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <div class="meta">
+              <h3 class="title-md">Signature</h3>
+              <span class="sub">Selo Chosen</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLEÇÕES -->
+  <section id="colecoes" class="section" style="background:#0f0f0f">
+    <div class="container catalog">
+      <!-- Camisetas (primeiro) -->
+      <div class="reveal">
+        <div class="pill">Coleções</div>
+        <h2 class="headline title-lg" style="margin-top:12px">Camisetas</h2>
+      </div>
+
+      <!-- 4 cards (2x2 no mobile) -->
+      <div class="grid grid-4">
+        <!-- Card 1 -->
+        <article class="card reveal" data-product-id="tee-01">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisetas/camiseta1.jpg" alt="Camiseta Logo"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camiseta Logo</h3>
+            <p class="sub">Silhueta minimal com logo Chosen</p>
+            <div class="meta">
+              <strong class="price">1.200 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camiseta Logo" data-price="1200" data-variant="white"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card reveal" data-product-id="tee-02">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisetas/camiseta2.jpg" alt="Camiseta Minimal"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camiseta Minimal</h3>
+            <p class="sub">Base lisa para tua arte</p>
+            <div class="meta">
+              <strong class="price">1.100 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camiseta Minimal" data-price="1100" data-variant="black"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card reveal" data-product-id="tee-03">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisetas/camiseta3.jpg" alt="Camiseta Essentials"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camiseta Essentials</h3>
+            <p class="sub">Algodão premium 200gsm</p>
+            <div class="meta">
+              <strong class="price">1.300 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camiseta Essentials" data-price="1300" data-variant="emerald"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card reveal" data-product-id="tee-04">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisetas/camiseta4.jpg" alt="Camiseta Oversized"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camiseta Oversized</h3>
+            <p class="sub">Fit moderno oversize</p>
+            <div class="meta">
+              <strong class="price">1.450 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camiseta Oversized" data-price="1450" data-variant="gold"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:14px" class="reveal">
+        <a class="btn-ghost" href="galeria.html?colecao=camisetas">Ver mais camisetas</a>
+      </div>
+
+      <!-- Camisolas -->
+      <div class="reveal" style="margin-top:42px">
+        <h2 class="headline title-lg">Camisolas</h2>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card reveal" data-product-id="sweat-01">
+          <span class="badge-mini">Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisolas/camisola1.jpg" alt="Camisola Minimal"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisola Minimal</h3>
+            <p class="sub">Conforto premium</p>
+            <div class="meta">
+              <strong class="price">2.200 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisola Minimal" data-price="2200"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="sweat-02">
+          <span class="badge-mini">Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisolas/camisola2.jpg" alt="Camisola Urbana"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisola Urbana</h3>
+            <p class="sub">Design intemporal</p>
+            <div class="meta">
+              <strong class="price">2.350 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisola Urbana" data-price="2350"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="sweat-03">
+          <span class="badge-mini">Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisolas/camisola3.jpg" alt="Camisola Essential"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisola Essential</h3>
+            <p class="sub">Algodão macio</p>
+            <div class="meta">
+              <strong class="price">2.000 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisola Essential" data-price="2000"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="sweat-04">
+          <span class="badge-mini">Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisolas/camisola4.jpg" alt="Camisola Zip"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisola Zip</h3>
+            <p class="sub">Meio fecho premium</p>
+            <div class="meta">
+              <strong class="price">2.450 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisola Zip" data-price="2450"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:14px" class="reveal">
+        <a class="btn-ghost" href="galeria.html?colecao=camisolas">Ver mais camisolas</a>
+      </div>
+
+      <!-- Camisas (por último) -->
+      <div class="reveal" style="margin-top:42px">
+        <h2 class="headline title-lg">Camisas</h2>
+      </div>
+
+      <div class="grid grid-4">
+        <article class="card reveal" data-product-id="shirt-01">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisas/camisa1.jpg" alt="Camisa Slim Fit"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisa Slim Fit</h3>
+            <p class="sub">Elegância diária</p>
+            <div class="meta">
+              <strong class="price">2.800 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisa Slim Fit" data-price="2800"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="shirt-02">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisas/camisa2.jpg" alt="Camisa Clássica"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisa Clássica</h3>
+            <p class="sub">Corte atemporal</p>
+            <div class="meta">
+              <strong class="price">2.700 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisa Clássica" data-price="2700"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="shirt-03">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisas/camisa3.jpg" alt="Camisa Oxford"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisa Oxford</h3>
+            <p class="sub">Textura premium</p>
+            <div class="meta">
+              <strong class="price">2.950 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisa Oxford" data-price="2950"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-product-id="shirt-04">
+          <span class="badge-mini">100% Personalizável</span>
+          <div class="card-media">
+            <img src="assets/img/produtos/camisas/camisa4.jpg" alt="Camisa Listrada"/>
+            <a class="btn cta-float" href="#personaliza">Personalizar</a>
+          </div>
+          <div class="card-body">
+            <h3 class="title-md">Camisa Listrada</h3>
+            <p class="sub">Clássico moderno</p>
+            <div class="meta">
+              <strong class="price">2.900 MT</strong>
+              <button class="btn-ghost add-to-cart" data-name="Camisa Listrada" data-price="2900"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:14px" class="reveal">
+        <a class="btn-ghost" href="galeria.html?colecao=camisas">Ver mais camisas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNIDADE / TESTEMUNHOS -->
+  <section id="comunidade" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="pill">Comunidade</div>
+        <h2 class="headline title-lg" style="margin-top:12px">O que dizem os escolhidos</h2>
+      </div>
+      <div class="grid grid-3" style="margin-top:24px">
+        <blockquote class="card reveal" style="padding:20px;text-align:center;font-style:italic">
+          "A Chosen não é só roupa, é identidade. Nunca mais vesti outra marca!"
+          <footer style="margin-top:10px;font-weight:600">— João M.</footer>
+        </blockquote>
+        <blockquote class="card reveal" style="padding:20px;text-align:center;font-style:italic">
+          "Personalizei minha camiseta e ficou incrível, todos perguntam onde comprei!"
+          <footer style="margin-top:10px;font-weight:600">— Carla A.</footer>
+        </blockquote>
+        <blockquote class="card reveal" style="padding:20px;text-align:center;font-style:italic">
+          "Conforto premium e ainda consigo mostrar quem sou. Chosen é minha vibe."
+          <footer style="margin-top:10px;font-weight:600">— Luís P.</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement section" style="background:#0f0f0f">
+    <div class="container">
+      <h2 class="headline">Vestir <span style="color:var(--emerald)">Chosen</span> é vestir <span style="color:var(--gold)">propósito</span>.</h2>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION FINAL -->
+  <section class="section" style="background:#0f0f0f;color:white;text-align:center">
+    <div class="container reveal">
+      <h2 class="headline title-lg">Junta-te ao movimento <span style="color:var(--gold)">Chosen</span></h2>
+      <p class="sub" style="margin-top:10px">Não é apenas roupa. É identidade, é propósito.<br>Personaliza a tua e vem fazer parte.</p>
+      <a href="#personaliza" class="btn" style="margin-top:18px">Começar Agora</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container row">
+      <div>
+        <div class="headline title-md" style="color:var(--gold)">CHOSEN</div>
+        <div class="sub">Feito com orgulho em Moçambique</div>
+        <div class="sub">Todos os produtos podem ser personalizados ao teu gosto.</div>
+      </div>
+      <div class="icons">
+        <a class="icon" href="https://wa.me/258852082357" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a class="icon" href="https://instagram.com/chosen_258" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="icon" href="https://youtube.com/@chosen" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="vendor/html2canvas/html2canvas.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src=""></script>
+  <script src="assets/js/personalizador.js"></script>
+</body>
+</html>
