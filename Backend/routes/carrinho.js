@@ -1,25 +1,46 @@
 const express = require("express");
+const { body, validationResult } = require("express-validator");
+const Carrinho = require("../models/Carrinho");
+
 const router = express.Router();
 
-let carrinho = [];
-
-// GET /api/carrinho
-router.get("/", (req, res) => {
-  res.json(carrinho);
+// GET → lista carrinho
+router.get("/", async (req, res) => {
+  try {
+    const itens = await Carrinho.findAll();
+    res.json(itens);
+  } catch (err) {
+    res.status(500).json({ error: "Erro ao buscar carrinho" });
+  }
 });
 
-// POST /api/carrinho
-router.post("/", (req, res) => {
-  const { id, nome, preco, qtd } = req.body;
-  carrinho.push({ id, nome, preco, qtd });
-  res.json({ msg: "Produto adicionado ao carrinho", carrinho });
-});
+// POST → adicionar item
+router.post(
+  "/",
+  body("produtoId").isInt().withMessage("ProdutoId inválido"),
+  body("qtd").isInt({ min: 1 }).withMessage("Quantidade deve ser >= 1"),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
-// DELETE /api/carrinho/:id
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  carrinho = carrinho.filter(item => item.id != id);
-  res.json({ msg: "Produto removido", carrinho });
+    try {
+      const item = await Carrinho.create(req.body);
+      res.json({ msg: "Item adicionado ao carrinho", item });
+    } catch (err) {
+      res.status(500).json({ error: "Erro ao adicionar ao carrinho" });
+    }
+  }
+);
+
+// DELETE → remover item
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Carrinho.destroy({ where: { id } });
+    res.json({ msg: "Item removido" });
+  } catch (err) {
+    res.status(500).json({ error: "Erro ao remover item" });
+  }
 });
 
 module.exports = router;
